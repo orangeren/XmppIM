@@ -1,0 +1,18 @@
+
+platform :ios, '9.0'
+target 'XmppIM' do
+
+use_frameworks!
+pod 'XMPPFramework'
+
+pod 'SDWebImage'
+pod 'MBProgressHUD'
+pod 'MJRefresh'
+pod 'TZImagePickerController'  
+pod 'VoiceConvert',:git => "https://github.com/AwakenDragon/VoiceConvert.git"
+
+end
+
+
+
+

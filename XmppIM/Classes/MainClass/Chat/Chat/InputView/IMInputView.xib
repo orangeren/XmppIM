@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IMInputView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVx-4h-Akx">
+                    <rect key="frame" x="45" y="9" width="250" height="32"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="agw-mZ-9dS"/>
+                    </constraints>
+                    <state key="normal" title="按住 说话"/>
+                    <state key="highlighted" title="松开 结束">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="talkButtonDown:" destination="iN0-l3-epB" eventType="touchDown" id="aI6-mU-xYm"/>
+                        <action selector="talkButtonDragInside:" destination="iN0-l3-epB" eventType="touchDragInside" id="oqT-aw-1aP"/>
+                        <action selector="talkButtonDragOutside:" destination="iN0-l3-epB" eventType="touchDragOutside" id="adw-gt-e0e"/>
+                        <action selector="talkButtonTouchCancel:" destination="iN0-l3-epB" eventType="touchCancel" id="TRc-tH-x5a"/>
+                        <action selector="talkButtonUpInside:" destination="iN0-l3-epB" eventType="touchUpInside" id="Gvz-yX-D8N"/>
+                        <action selector="talkButtonUpOutside:" destination="iN0-l3-epB" eventType="touchUpOutside" id="cxk-CC-Jt6"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="stn-S4-lbz" customClass="ExpressionTextView">
+                    <rect key="frame" x="45" y="9" width="250" height="32"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXD-r5-Y3K" userLabel="添加">
+                    <rect key="frame" x="335" y="7" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="MDN-lA-Nl2"/>
+                        <constraint firstAttribute="width" constant="35" id="daa-Mv-WBH"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="加号"/>
+                    <state key="selected" backgroundImage="加号"/>
+                    <state key="highlighted" backgroundImage="加号H"/>
+                    <connections>
+                        <action selector="addBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="jmi-Am-h47"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSd-Bl-tDM" userLabel="表情">
+                    <rect key="frame" x="300" y="7" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Dnj-cD-1tj"/>
+                        <constraint firstAttribute="width" constant="35" id="nmc-cP-cVc"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="表情"/>
+                    <state key="selected" backgroundImage="键盘"/>
+                    <state key="highlighted" backgroundImage="表情H"/>
+                    <connections>
+                        <action selector="emojiBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="wmh-MU-zIa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6L-ge-WM4" userLabel="语音">
+                    <rect key="frame" x="5" y="7" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="2rp-bI-l2C"/>
+                        <constraint firstAttribute="height" constant="35" id="ENL-xb-7zW"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="语音"/>
+                    <state key="selected" backgroundImage="键盘"/>
+                    <state key="highlighted" backgroundImage="语音H"/>
+                    <connections>
+                        <action selector="voiceBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2VX-WH-PR5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90497720211290467" green="0.90497720211290467" blue="0.90497720211290467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mVx-4h-Akx" firstAttribute="leading" secondItem="O6L-ge-WM4" secondAttribute="trailing" constant="5" id="Cf3-FO-gYQ"/>
+                <constraint firstItem="O6L-ge-WM4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="MuS-Mm-n7E"/>
+                <constraint firstItem="O6L-ge-WM4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Mv2-BT-xj1"/>
+                <constraint firstItem="mSd-Bl-tDM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="QI2-MR-i3C"/>
+                <constraint firstItem="mVx-4h-Akx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="Qbu-lm-lNt"/>
+                <constraint firstItem="mSd-Bl-tDM" firstAttribute="leading" secondItem="mVx-4h-Akx" secondAttribute="trailing" constant="5" id="R0R-IW-ztV"/>
+                <constraint firstItem="stn-S4-lbz" firstAttribute="leading" secondItem="O6L-ge-WM4" secondAttribute="trailing" constant="5" id="XTa-Hc-z5x"/>
+                <constraint firstAttribute="trailing" secondItem="QXD-r5-Y3K" secondAttribute="trailing" constant="5" id="Xlk-4x-vc0"/>
+                <constraint firstItem="stn-S4-lbz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="ZA3-TP-08M"/>
+                <constraint firstItem="QXD-r5-Y3K" firstAttribute="leading" secondItem="mSd-Bl-tDM" secondAttribute="trailing" id="b9V-4v-dKX"/>
+                <constraint firstItem="QXD-r5-Y3K" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oZq-k9-QQ2"/>
+                <constraint firstItem="mSd-Bl-tDM" firstAttribute="leading" secondItem="stn-S4-lbz" secondAttribute="trailing" constant="5" id="orM-Br-hQH"/>
+                <constraint firstAttribute="bottom" secondItem="stn-S4-lbz" secondAttribute="bottom" constant="9" id="p70-8j-GWO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addMoreBtn" destination="QXD-r5-Y3K" id="Qit-9I-tJO"/>
+                <outlet property="emojiBtn" destination="mSd-Bl-tDM" id="szy-kP-hYD"/>
+                <outlet property="inputTextV" destination="stn-S4-lbz" id="bXd-DO-Eal"/>
+                <outlet property="talkButton" destination="mVx-4h-Akx" id="nzv-a9-K6s"/>
+                <outlet property="voiceBtn" destination="O6L-ge-WM4" id="bBx-YJ-yOn"/>
+            </connections>
+            <point key="canvasLocation" x="-141.5" y="-538"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="加号" width="35" height="35"/>
+        <image name="加号H" width="35" height="35"/>
+        <image name="表情" width="35" height="35"/>
+        <image name="表情H" width="35" height="35"/>
+        <image name="语音" width="35" height="35"/>
+        <image name="语音H" width="35" height="35"/>
+        <image name="键盘" width="35" height="35"/>
+    </resources>
+</document>

@@ -1,0 +1,77 @@
+PODS:
+  - CocoaAsyncSocket (7.6.3)
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
+  - KissXML (5.2.3)
+  - libidn (1.35)
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.1.15.7)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - TZImagePickerController (3.1.1)
+  - VoiceConvert (0.0.2):
+    - VoiceConvert/amrwapper (= 0.0.2)
+    - VoiceConvert/opencore-amrnb (= 0.0.2)
+    - VoiceConvert/opencore-amrwb (= 0.0.2)
+    - VoiceConvert/VoiceConvert (= 0.0.2)
+  - VoiceConvert/amrwapper (0.0.2)
+  - VoiceConvert/opencore-amrnb (0.0.2)
+  - VoiceConvert/opencore-amrwb (0.0.2)
+  - VoiceConvert/VoiceConvert (0.0.2)
+  - XMPPFramework (4.0.0):
+    - XMPPFramework/default (= 4.0.0)
+  - XMPPFramework/default (4.0.0):
+    - CocoaAsyncSocket (~> 7.6)
+    - CocoaLumberjack
+    - KissXML (~> 5.2)
+    - libidn (~> 1.35)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - MJRefresh
+  - SDWebImage
+  - TZImagePickerController
+  - VoiceConvert (from `https://github.com/AwakenDragon/VoiceConvert.git`)
+  - XMPPFramework
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+    - KissXML
+    - libidn
+    - MBProgressHUD
+    - MJRefresh
+    - SDWebImage
+    - TZImagePickerController
+    - XMPPFramework
+
+EXTERNAL SOURCES:
+  VoiceConvert:
+    :git: https://github.com/AwakenDragon/VoiceConvert.git
+
+CHECKOUT OPTIONS:
+  VoiceConvert:
+    :commit: cf7b1b953692bf3d1370ff837606eea211f32d7b
+    :git: https://github.com/AwakenDragon/VoiceConvert.git
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  KissXML: 09f88ff8161fd058d67b70740b8b516687b52823
+  libidn: e4576a956b797c584c77aaedfc6e3dd639b61bdc
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  TZImagePickerController: b33cb21ea66c1ed4c56443a0e8c84494c44be560
+  VoiceConvert: d22e56e9cc3d6787b7b2d9a62f1d7318e957bfe1
+  XMPPFramework: 5d31ff9f73dce031b24bc49bcf88093627a3a86e
+
+PODFILE CHECKSUM: 5b98f509c8d33e5af758f465d26469035b8e5b7f
+
+COCOAPODS: 1.5.2

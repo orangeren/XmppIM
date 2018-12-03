@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lQJ-zD-xWf">
+                    <rect key="frame" x="10" y="7" width="305" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqK-U2-eIJ">
+                    <rect key="frame" x="315" y="0.0" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="IJl-f5-URH"/>
+                    </constraints>
+                    <state key="normal" title="取消"/>
+                    <connections>
+                        <action selector="cancelClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Myt-3p-2gM"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmn-V4-QrN">
+                    <rect key="frame" x="130.5" y="7" width="65" height="30"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search_sousuo" translatesAutoresizingMaskIntoConstraints="NO" id="lM0-DY-Bho">
+                            <rect key="frame" x="0.0" y="2" width="26" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="26" id="4K4-Kt-wIn"/>
+                                <constraint firstAttribute="width" secondItem="lM0-DY-Bho" secondAttribute="height" multiplier="1:1" id="csy-cv-UUW"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkP-oi-49E">
+                            <rect key="frame" x="31" y="6" width="34" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="AkP-oi-49E" firstAttribute="leading" secondItem="lM0-DY-Bho" secondAttribute="trailing" constant="5" id="9DA-xA-szW"/>
+                        <constraint firstItem="lM0-DY-Bho" firstAttribute="centerY" secondItem="Dmn-V4-QrN" secondAttribute="centerY" id="EmD-YJ-ZeY"/>
+                        <constraint firstItem="AkP-oi-49E" firstAttribute="centerY" secondItem="Dmn-V4-QrN" secondAttribute="centerY" id="FmX-4m-L2e"/>
+                        <constraint firstAttribute="height" constant="30" id="Z3F-am-bBl"/>
+                        <constraint firstAttribute="trailing" secondItem="AkP-oi-49E" secondAttribute="trailing" id="cys-ce-Jfr"/>
+                        <constraint firstAttribute="width" constant="65" id="s5p-FX-fat"/>
+                        <constraint firstItem="lM0-DY-Bho" firstAttribute="leading" secondItem="Dmn-V4-QrN" secondAttribute="leading" id="taD-fw-KMV"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Dmn-V4-QrN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0Zp-Vf-tgR"/>
+                <constraint firstItem="Dmn-V4-QrN" firstAttribute="centerX" secondItem="lQJ-zD-xWf" secondAttribute="centerX" id="92o-Kl-TJW"/>
+                <constraint firstAttribute="bottom" secondItem="TqK-U2-eIJ" secondAttribute="bottom" id="Dew-ZO-g7U"/>
+                <constraint firstAttribute="trailing" secondItem="TqK-U2-eIJ" secondAttribute="trailing" id="VQC-2P-o9R"/>
+                <constraint firstItem="lQJ-zD-xWf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Xpx-Ep-yBe"/>
+                <constraint firstAttribute="bottom" secondItem="lQJ-zD-xWf" secondAttribute="bottom" constant="7" id="ZB2-3J-rWh"/>
+                <constraint firstItem="TqK-U2-eIJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gk8-Ud-rGS"/>
+                <constraint firstItem="TqK-U2-eIJ" firstAttribute="leading" secondItem="lQJ-zD-xWf" secondAttribute="trailing" id="oSN-05-JE8"/>
+                <constraint firstItem="lQJ-zD-xWf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="wHB-25-rm3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelWidCons" destination="IJl-f5-URH" id="eE9-NG-tLV"/>
+                <outlet property="searchNoticeView" destination="Dmn-V4-QrN" id="sAc-Yd-29L"/>
+                <outlet property="searchNoticeViewCenterXCons" destination="92o-Kl-TJW" id="aDU-El-pcm"/>
+                <outlet property="searchTF" destination="lQJ-zD-xWf" id="gGC-tV-wEK"/>
+                <outlet property="searchTFRightCons" destination="oSN-05-JE8" id="A0Z-iL-eH8"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="-94"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Search_sousuo" width="50" height="50"/>
+    </resources>
+</document>

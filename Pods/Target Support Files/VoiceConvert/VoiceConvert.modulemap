@@ -1,0 +1,6 @@
+framework module VoiceConvert {
+  umbrella header "VoiceConvert-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SearchHistoryCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search_history.png" translatesAutoresizingMaskIntoConstraints="NO" id="NLF-aR-0bE">
+                        <rect key="frame" x="15" y="0.0" width="13" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="Vbt-EV-FpF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贷款申请平台" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zW9-Hz-NbN">
+                        <rect key="frame" x="36" y="0.0" width="288" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nd-bn-0TK">
+                        <rect key="frame" x="332" y="0.0" width="43" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="bjR-iJ-d10"/>
+                        </constraints>
+                        <state key="normal" image="Search_close.png"/>
+                        <connections>
+                            <action selector="onDeleteClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pet-IM-CqY"/>
+                        </connections>
+                    </button>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWb-zn-tjl" userLabel="line">
+                        <rect key="frame" x="10" y="42" width="355" height="1"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="RD8-Xe-GSI"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWx-Kc-hT9">
+                        <rect key="frame" x="10" y="0.0" width="355" height="1"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="sGd-uG-AyY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jWx-Kc-hT9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7LD-ib-l0n"/>
+                    <constraint firstAttribute="bottom" secondItem="kWb-zn-tjl" secondAttribute="bottom" id="CDJ-Dc-HAD"/>
+                    <constraint firstItem="2Nd-bn-0TK" firstAttribute="leading" secondItem="zW9-Hz-NbN" secondAttribute="trailing" constant="8" symbolic="YES" id="D7S-I1-SlH"/>
+                    <constraint firstAttribute="trailing" secondItem="2Nd-bn-0TK" secondAttribute="trailing" id="Dxb-L7-vwg"/>
+                    <constraint firstItem="NLF-aR-0bE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="OgA-fZ-9Zw"/>
+                    <constraint firstItem="zW9-Hz-NbN" firstAttribute="bottom" secondItem="2Nd-bn-0TK" secondAttribute="bottom" id="UVM-Wq-Dn1"/>
+                    <constraint firstAttribute="trailing" secondItem="jWx-Kc-hT9" secondAttribute="trailing" constant="10" id="Zbf-Xv-Pji"/>
+                    <constraint firstItem="kWb-zn-tjl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aT4-d4-hOX"/>
+                    <constraint firstItem="zW9-Hz-NbN" firstAttribute="leading" secondItem="NLF-aR-0bE" secondAttribute="trailing" constant="8" symbolic="YES" id="aw1-CK-1kK"/>
+                    <constraint firstAttribute="bottom" secondItem="NLF-aR-0bE" secondAttribute="bottom" id="edg-NZ-oXi"/>
+                    <constraint firstItem="NLF-aR-0bE" firstAttribute="top" secondItem="zW9-Hz-NbN" secondAttribute="top" id="fC3-Qe-J7h"/>
+                    <constraint firstAttribute="trailing" secondItem="kWb-zn-tjl" secondAttribute="trailing" constant="10" id="gpb-p4-vBj"/>
+                    <constraint firstItem="NLF-aR-0bE" firstAttribute="bottom" secondItem="zW9-Hz-NbN" secondAttribute="bottom" id="j3r-fr-6Kt"/>
+                    <constraint firstItem="NLF-aR-0bE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nba-ml-FkH"/>
+                    <constraint firstItem="jWx-Kc-hT9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ngV-l5-pYZ"/>
+                    <constraint firstItem="zW9-Hz-NbN" firstAttribute="top" secondItem="2Nd-bn-0TK" secondAttribute="top" id="sSb-sX-LFK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="historyLab" destination="zW9-Hz-NbN" id="o6Z-Of-60c"/>
+                <outlet property="topLine" destination="jWx-Kc-hT9" id="6JN-jD-ryM"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Search_close.png" width="17" height="17"/>
+        <image name="Search_history.png" width="16" height="16"/>
+    </resources>
+</document>

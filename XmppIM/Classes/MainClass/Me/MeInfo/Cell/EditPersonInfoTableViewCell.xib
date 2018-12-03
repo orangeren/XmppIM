@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditPersonInfoTableViewCell0" id="KGk-i7-Jjw" customClass="EditPersonInfoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtt-bW-Mg1" userLabel="line">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="4ss-HH-fBZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-Y6-lja">
+                        <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCB-Oa-f3e" userLabel="line">
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="BCR-Ji-shA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jtt-bW-Mg1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2fi-Lh-58h"/>
+                    <constraint firstItem="bCB-Oa-f3e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ac4-A7-TYV"/>
+                    <constraint firstAttribute="trailing" secondItem="jtt-bW-Mg1" secondAttribute="trailing" id="Dki-rE-Wrz"/>
+                    <constraint firstItem="mQt-Y6-lja" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="JuB-Qu-gNA"/>
+                    <constraint firstAttribute="bottom" secondItem="mQt-Y6-lja" secondAttribute="bottom" id="OmY-Z9-syd"/>
+                    <constraint firstAttribute="trailing" secondItem="mQt-Y6-lja" secondAttribute="trailing" constant="15" id="RoP-UM-kr8"/>
+                    <constraint firstAttribute="bottom" secondItem="bCB-Oa-f3e" secondAttribute="bottom" id="WFf-1O-L5H"/>
+                    <constraint firstAttribute="trailing" secondItem="bCB-Oa-f3e" secondAttribute="trailing" id="h9I-yv-E3x"/>
+                    <constraint firstItem="jtt-bW-Mg1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xwp-T5-1Kb"/>
+                    <constraint firstItem="mQt-Y6-lja" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zRl-DQ-NJs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="editPersionInfo" destination="mQt-Y6-lja" id="Zy7-2U-bbE"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
