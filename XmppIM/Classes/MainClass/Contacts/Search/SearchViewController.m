@@ -31,7 +31,7 @@
 - (SearchHeader *)searchHeader {
     if (!_searchHeader) {
         _searchHeader = [SearchHeader addSearchHeader];
-        _searchHeader.frame = CGRectMake(0, 20, ScreenWidth, 44);
+        _searchHeader.frame = CGRectMake(0, StatusBarHeight, ScreenWidth, 44);
         _searchHeader.searchEnable = YES;
         
         __weak typeof(self) weekSelf = self;
@@ -64,7 +64,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor colorWithHexString:COLOR_Background_STR];
     
     // 1.检索框
     [self.view addSubview:self.searchHeader];

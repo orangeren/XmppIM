@@ -150,12 +150,13 @@
 }
 
 
+
 #pragma mark ------------------------------------------
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithHexString:COLOR_Background_STR];
     self.title = self.friendJid.user;
-    self.view.backgroundColor = [UIColor whiteColor];
     
     [self setUI];
 }
@@ -171,7 +172,7 @@
     NSArray *inputViewHCons = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[inputView]-0-|" options:0 metrics:nil views:views];
     [self.view addConstraints:inputViewHCons];
     // 垂直方向的约束
-    NSArray *vCons = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[tableView]-0-[inputView(50)]-0-|" options:0 metrics:nil views:views];
+    NSArray *vCons = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-0-[tableView]-0-[inputView(%d)]-%f-|", IMInputView_Height, TabBarHeightAddition] options:0 metrics:nil views:views];
     [self.view addConstraints:vCons];
     
     // 约束控制

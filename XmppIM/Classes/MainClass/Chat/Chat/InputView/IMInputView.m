@@ -32,7 +32,7 @@ AddMoreViewDelegate             //添加更多代理
 - (ExpressionView *)emojiView {
     if (!_emojiView) {
         _emojiView = [ExpressionView expressionView];
-        _emojiView.frame = CGRectMake(0, ScreenHeight-StatusBarHeight-44, ScreenWidth, Input_EmojiKeyboard_Height);
+        _emojiView.frame = CGRectMake(0, ScreenHeight-StatusBarHeight-IMInputView_Height, ScreenWidth, Input_EmojiKeyboard_Height);
         //_emojiView.delegate = self;
     }
     return _emojiView;
@@ -40,7 +40,7 @@ AddMoreViewDelegate             //添加更多代理
 - (AddMoreView *)addMoreView {
     if (!_addMoreView) {
         _addMoreView = [AddMoreView addMoreView];
-        _addMoreView.frame = CGRectMake(0, ScreenHeight-StatusBarHeight-44, ScreenWidth, Input_EmojiKeyboard_Height);
+        _addMoreView.frame = CGRectMake(0, ScreenHeight-StatusBarHeight-IMInputView_Height, ScreenWidth, Input_EmojiKeyboard_Height);
         _addMoreView.backgroundColor = [UIColor whiteColor];
         //_addMoreView.delegate = self;
     }
@@ -115,7 +115,7 @@ AddMoreViewDelegate             //添加更多代理
     }
     else {
         button.selected = NO;
-        self.status =  ChatInputStatusShowKeyboard;
+        self.status = ChatInputStatusShowKeyboard;
         [self setInputUIWithState:ChatInputStatusShowKeyboard];
     }  
 }
@@ -126,12 +126,12 @@ AddMoreViewDelegate             //添加更多代理
     UIButton *button = (UIButton *)sender;
     if (button.selected == NO) {
         button.selected = YES;
-        self.status =  ChatInputStatusShowVoice;
+        self.status = ChatInputStatusShowVoice;
         [self setInputUIWithState:ChatInputStatusShowVoice];
     }
     else {
         button.selected = NO;
-        self.status =  ChatInputStatusShowKeyboard;
+        self.status = ChatInputStatusShowKeyboard;
         [self setInputUIWithState:ChatInputStatusShowKeyboard];
     }
 }
@@ -200,7 +200,7 @@ AddMoreViewDelegate             //添加更多代理
     NSString *fileName = [NSString stringWithFormat:@"%ld",(long)timeInterval];
     return fileName;
 }
-/*录音时间太短*/
+/* 录音时间太短 */
 - (void)voiceRecordSoShort {
     [self timerInvalue];
     self.voiceHud.animationImages = nil;
@@ -253,7 +253,7 @@ AddMoreViewDelegate             //添加更多代理
 - (void)setInputUIWithState:(ChatInputStatus)status {
     switch (status) {
         case ChatInputStatusNothing: { /* 默认 */
-            self.inputButtomViewCons.constant = 0;
+            self.inputButtomViewCons.constant = TabBarHeightAddition;
             self.emojiBtn.selected = NO;
             self.addMoreBtn.selected = NO;
             self.voiceBtn.selected = NO;
@@ -293,9 +293,9 @@ AddMoreViewDelegate             //添加更多代理
             [self hideAddMorePane];                 // 2. 收起“更多”
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{       // 3. 0.1s后添加emoji面板
                 [self.superVC.view addSubview:self.emojiView];
-                self.inputButtomViewCons.constant = Input_EmojiKeyboard_Height;
+                self.inputButtomViewCons.constant = Input_EmojiKeyboard_Height+TabBarHeightAddition;
                 [UIView animateWithDuration:0.3 animations:^{
-                    self.emojiView.frame = CGRectMake(0, ScreenHeight-Input_EmojiKeyboard_Height-StatusBarHeight-44, ScreenWidth, Input_EmojiKeyboard_Height);
+                    self.emojiView.frame = CGRectMake(0, ScreenHeight-Input_EmojiKeyboard_Height-StatusBarHeight-TabBarHeightAddition-IMInputView_Height, ScreenWidth, Input_EmojiKeyboard_Height);
                     [self.viewController.view layoutIfNeeded];
                 }];
                 //表格滚动到底部
@@ -316,9 +316,9 @@ AddMoreViewDelegate             //添加更多代理
             [self hideEmojiPane];                   // 2. 收起表情
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{       // 3. 0.1s后添加“更多”面板
                 [self.superVC.view addSubview:self.addMoreView];
-                self.inputButtomViewCons.constant = Input_AddMoreKeyboard_Height;
+                self.inputButtomViewCons.constant = Input_AddMoreKeyboard_Height+TabBarHeightAddition;
                 [UIView animateWithDuration:0.3 animations:^{
-                    self.addMoreView.frame = CGRectMake(0, ScreenHeight-Input_AddMoreKeyboard_Height-StatusBarHeight-44, ScreenWidth, Input_AddMoreKeyboard_Height);
+                    self.addMoreView.frame = CGRectMake(0, ScreenHeight-Input_AddMoreKeyboard_Height-StatusBarHeight-TabBarHeightAddition-IMInputView_Height, ScreenWidth, Input_AddMoreKeyboard_Height);
                     [self.viewController.view layoutIfNeeded];
                 }];
                 //表格滚动到底部
@@ -329,7 +329,7 @@ AddMoreViewDelegate             //添加更多代理
             
             
         case ChatInputStatusShowVoice: { /* 显示语音 */
-            self.inputButtomViewCons.constant = 0;
+            self.inputButtomViewCons.constant = TabBarHeightAddition;
             self.voiceBtn.selected = YES;
             self.inputTextV.hidden = YES;
             self.talkButton.hidden = NO;

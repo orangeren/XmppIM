@@ -15,6 +15,9 @@
 #import "ExpressionView.h"
 
 
+
+#define IMInputView_Height 50
+
 @interface IMInputView : UIView
 + (IMInputView *)inputView;
 

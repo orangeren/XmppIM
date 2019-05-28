@@ -20,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (@available(iOS 12.1, *)) {
+        //iOS12.1的BUG tabbar跳动
+        [[UITabBar appearance] setTranslucent:NO];
+    }
+    
     BaseNavigationController *mainNavi = [[BaseNavigationController alloc] initWithRootViewController:[CurrentViewController new]];
     BaseNavigationController *contactsNavi = [[BaseNavigationController alloc] initWithRootViewController:[ContactsViewController new]];
     BaseNavigationController *meNavi = [[BaseNavigationController alloc] initWithRootViewController:[MeViewController new]];
@@ -36,7 +41,7 @@
         
         [obj setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor darkGrayColor], NSFontAttributeName:[UIFont systemFontOfSize: 10]} forState:UIControlStateNormal];
         [obj setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize: 10]} forState:UIControlStateSelected];
-        obj.titlePositionAdjustment = UIOffsetMake(0, -5);
+        obj.titlePositionAdjustment = UIOffsetMake(0, 3); // 图片|文字 间距
     }];
 }
 

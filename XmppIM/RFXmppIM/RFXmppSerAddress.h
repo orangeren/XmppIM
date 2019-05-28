@@ -13,7 +13,7 @@
 #define Domain @"renfang.local"
 
 // 服务器地址 (域名 或 IP)
-#define IP @"172.20.10.5"
+#define IP @"192.168.1.172"
 
 
 #endif /* RFXmppSerAddress_h */

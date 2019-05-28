@@ -10,11 +10,22 @@
 
 @interface RFXmppUtil : NSObject
 
-#define ScreenWidth [UIScreen mainScreen].bounds.size.width
-#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define ScreenWidth             [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight            [UIScreen mainScreen].bounds.size.height
 
-#define StatusBarHeight     [UIApplication sharedApplication].statusBarFrame.size.height
-#define NavigationBarHeight StatusBarHeight + 44
+#define StatusBarHeight         [UIApplication sharedApplication].statusBarFrame.size.height
+#define NavigationBarHeight     StatusBarHeight + 44
+#define TabBarHeight            (StatusBarHeight > 21.0 ? 83.0 : 49.0)
+#define TabBarHeightAddition    (StatusBarHeight > 21.0 ? 34.0 : 0.0)
+
+#define AdaptedWidth(x)         ceilf((x) * (ScreenWidth / 375.0))
+#define AdaptedHeight(x)        ceilf((x) * (ScreenHeight / 667.0))
+
+
+// 主题色
+#define COLOR_Main_STR          @"FFFFFF"
+// 背景颜色
+#define COLOR_Background_STR    @"f2f4f5"
 
 
 
