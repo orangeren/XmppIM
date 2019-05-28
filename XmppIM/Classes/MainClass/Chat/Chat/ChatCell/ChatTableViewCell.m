@@ -65,7 +65,7 @@
     [self addSubview:headBtn];
 }
 // 点击头像
-- (void)headClick:(UIButton*)button {
+- (void)headClick:(UIButton *)button {
     if (_outgoing.intValue==1) {
         NSLog(@"点击了自己的头像");
     } else {

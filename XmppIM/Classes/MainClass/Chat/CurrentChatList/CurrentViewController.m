@@ -89,6 +89,11 @@
     [self notification];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.dialogueJid = nil;
+}
+
 - (void)setUI {
     // 左按钮
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithCustomView:self.myselfHead];
@@ -164,16 +169,17 @@
             // 2. 信息发送人不是当前聊天人，记录为未读信息
             if (self.dialogueJid && [self.dialogueJid.user isEqualToString:msgOtherJid.user]) {
                 // 有对话 忽略
+                NSLog(@"有对话 忽略");
             } else {
                 NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[IMAppCache getUnreadNumFromSanbox]];
                 NSString *countValue = [dict objectForKey:msgOtherJid.user];
                 if (countValue) {
-                    // 已有 +1
+                    // 是未读列表中的对话 +1
                     int unreadNum = countValue.intValue;
                     unreadNum++;
                     [dict setObject:[NSString stringWithFormat:@"%d", unreadNum] forKey:msgOtherJid.user];
                 } else {
-                    // 没有 添加
+                    // 新未读 添加
                     [dict setObject:@"1" forKey:msgOtherJid.user];
                 }
                 [IMAppCache saveUnreadNumToSanbox:dict];

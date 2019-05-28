@@ -27,44 +27,6 @@
 
 @implementation ChatViewController
 
-
-#pragma mark lazy load
-- (NSMutableArray *)dataSources {
-    if (!_dataSources) {
-        _dataSources = [NSMutableArray array];
-    }
-    return _dataSources;
-}
-
-- (UITableView *)mainTable {
-    if (!_mainTable) {
-        _mainTable = [[UITableView alloc] init];
-        _mainTable.backgroundColor = [UIColor whiteColor];
-        _mainTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _mainTable.delegate = self;
-        _mainTable.dataSource = self;
-        _mainTable.translatesAutoresizingMaskIntoConstraints = NO;
-        //_mainTable.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;//效果不太好
-        [self.view addSubview:_mainTable];
-        
-        [_mainTable addActionWithTarget:self action:@selector(hiddenKeyboardWhenTapMainTable)];
-    }
-    return _mainTable;
-}
-- (void)hiddenKeyboardWhenTapMainTable {
-    [self.inputView setInputUIWithState:ChatInputStatusNothing];
-}
-
-- (IMInputView *)inputView {
-    if (!_inputView) {
-        _inputView = [IMInputView inputView];
-        _inputView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.view addSubview:_inputView];
-    }
-    return _inputView;
-}
-
-
 - (NSFetchedResultsController *)resultContrl_Chat {
     if (!_resultContrl_Chat) {
         // 1.初始化查询请求
@@ -103,8 +65,8 @@
 - (void)addDataSourcesWithMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message {
     XMPPMessage *xmppmessage = message.message;
     NSString *chatType = [xmppmessage attributeStringValueForName:@"chatType"];
+    // 音|视 频
     if ([chatType isEqualToString:MessageTypeAudio] || [chatType isEqualToString:MessageTypeVedio]) {
-        // 音视频
         NSString *base64str = [[xmppmessage elementForName:@"attachment"] stringValue];
         NSData *data = [base64str dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
@@ -147,43 +109,6 @@
     }
     NSIndexPath *lastPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     [self.mainTable scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:animated];
-}
-
-
-
-#pragma mark ------------------------------------------
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHexString:COLOR_Background_STR];
-    self.title = self.friendJid.user;
-    
-    [self setUI];
-}
-
-- (void)setUI {
-    /* 约束 */
-    NSDictionary *views = @{@"tableView":self.mainTable,
-                            @"inputView":self.inputView};
-    // 1.tabview水平方向的约束
-    NSArray *tableviewHCons = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[tableView]-0-|" options:0 metrics:nil views:views];
-    [self.view addConstraints:tableviewHCons];
-    // 2.inputView水平方向的约束
-    NSArray *inputViewHCons = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[inputView]-0-|" options:0 metrics:nil views:views];
-    [self.view addConstraints:inputViewHCons];
-    // 垂直方向的约束
-    NSArray *vCons = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-0-[tableView]-0-[inputView(%d)]-%f-|", IMInputView_Height, TabBarHeightAddition] options:0 metrics:nil views:views];
-    [self.view addConstraints:vCons];
-    
-    // 约束控制
-    self.inputView.inputViewHeiCons = vCons[2];
-    self.inputView.inputButtomViewCons = [vCons lastObject];
-    self.inputView.friendJid = self.friendJid;
-    self.inputView.superVC = self;
-    __weak typeof(self) weekSelf = self;
-    self.inputView.scrollBottomBlock = ^{//滚动到底部
-        [weekSelf scrollToTableBottom:YES];
-    };
 }
 
 
@@ -354,6 +279,82 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (self.inputView.status == ChatInputStatusShowKeyboard || self.inputView.status == ChatInputStatusShowEmoji || self.inputView.status == ChatInputStatusShowMore)
     [self.inputView setInputUIWithState:ChatInputStatusNothing];
+}
+
+
+
+
+
+#pragma mark ------------------------------------------
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithHexString:COLOR_Background_STR];
+    self.title = self.friendJid.user;
+    
+    [self setUI];
+}
+
+- (void)setUI {
+    /* 约束 */
+    NSDictionary *views = @{@"tableView":self.mainTable,
+                            @"inputView":self.inputView};
+    // 1.tabview水平方向的约束
+    NSArray *tableviewHCons = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[tableView]-0-|" options:0 metrics:nil views:views];
+    [self.view addConstraints:tableviewHCons];
+    // 2.inputView水平方向的约束
+    NSArray *inputViewHCons = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[inputView]-0-|" options:0 metrics:nil views:views];
+    [self.view addConstraints:inputViewHCons];
+    // 垂直方向的约束
+    NSArray *vCons = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-0-[tableView]-0-[inputView(%d)]-%f-|", IMInputView_Height, TabBarHeightAddition] options:0 metrics:nil views:views];
+    [self.view addConstraints:vCons];
+    
+    // 约束控制
+    self.inputView.inputViewHeiCons = vCons[2];
+    self.inputView.inputButtomViewCons = [vCons lastObject];
+    self.inputView.friendJid = self.friendJid;
+    self.inputView.superVC = self;
+    __weak typeof(self) weekSelf = self;
+    self.inputView.scrollBottomBlock = ^{//滚动到底部
+        [weekSelf scrollToTableBottom:YES];
+    };
+}
+
+
+#pragma mark lazy load
+- (NSMutableArray *)dataSources {
+    if (!_dataSources) {
+        _dataSources = [NSMutableArray array];
+    }
+    return _dataSources;
+}
+
+- (UITableView *)mainTable {
+    if (!_mainTable) {
+        _mainTable = [[UITableView alloc] init];
+        _mainTable.backgroundColor = [UIColor whiteColor];
+        _mainTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _mainTable.delegate = self;
+        _mainTable.dataSource = self;
+        _mainTable.translatesAutoresizingMaskIntoConstraints = NO;
+        //_mainTable.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;//效果不太好
+        [self.view addSubview:_mainTable];
+        
+        [_mainTable addActionWithTarget:self action:@selector(hiddenKeyboardWhenTapMainTable)];
+    }
+    return _mainTable;
+}
+- (void)hiddenKeyboardWhenTapMainTable {
+    [self.inputView setInputUIWithState:ChatInputStatusNothing];
+}
+
+- (IMInputView *)inputView {
+    if (!_inputView) {
+        _inputView = [IMInputView inputView];
+        _inputView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:_inputView];
+    }
+    return _inputView;
 }
 
 @end

@@ -22,7 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithHexString:COLOR_Background_STR];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     // 右边添加按钮
     UIButton *righteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -31,13 +32,13 @@
     [righteBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righteBtn];
     
-    
     [self setUI];
 }
 
 - (void)setUI {
     scaleNum = 1.0;
     [self.view addSubview:self.scrollView];
+    self.scrollView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight-NavigationBarHeight-TabBarHeightAddition);
     [self.scrollView addSubview:self.headPic];
     
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
@@ -121,10 +122,7 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        CGFloat hei = ScreenHeight+NavigationBarHeight;
-        NSLog(@"hei - %f", hei);
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, hei)];
-        NSLog(@"NavigationBarHeight - %f - %f - %f", ScreenHeight, NavigationBarHeight, ScreenHeight-NavigationBarHeight);
+        _scrollView = [[UIScrollView alloc] init];
         _scrollView.backgroundColor = [UIColor greenColor];
         _scrollView.userInteractionEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = YES;//是否显示侧边的滚动栏
@@ -140,7 +138,7 @@
     if (!_headPic) {
         _headPic = [[UIImageView alloc] init];
         _headPic.frame = CGRectMake(0, 0, ScreenWidth, ScreenWidth);
-        _headPic.center = CGPointMake(_scrollView.width/2, _scrollView.height/2);
+        _headPic.center = CGPointMake(CGRectGetMaxX(self.scrollView.frame)/2, CGRectGetMaxY(self.scrollView.frame)/2);
     }
     return _headPic;
 }

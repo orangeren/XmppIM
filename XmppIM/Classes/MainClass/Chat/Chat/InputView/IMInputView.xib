@@ -46,8 +46,11 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="stn-S4-lbz" customClass="ExpressionTextView">
-                    <rect key="frame" x="45" y="9" width="250" height="32"/>
+                    <rect key="frame" x="45" y="10" width="250" height="30"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="SqF-qB-Cei"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                     <userDefinedRuntimeAttributes>
@@ -112,11 +115,10 @@
                 <constraint firstItem="mSd-Bl-tDM" firstAttribute="leading" secondItem="mVx-4h-Akx" secondAttribute="trailing" constant="5" id="R0R-IW-ztV"/>
                 <constraint firstItem="stn-S4-lbz" firstAttribute="leading" secondItem="O6L-ge-WM4" secondAttribute="trailing" constant="5" id="XTa-Hc-z5x"/>
                 <constraint firstAttribute="trailing" secondItem="QXD-r5-Y3K" secondAttribute="trailing" constant="5" id="Xlk-4x-vc0"/>
-                <constraint firstItem="stn-S4-lbz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="ZA3-TP-08M"/>
                 <constraint firstItem="QXD-r5-Y3K" firstAttribute="leading" secondItem="mSd-Bl-tDM" secondAttribute="trailing" id="b9V-4v-dKX"/>
+                <constraint firstItem="stn-S4-lbz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kUa-wh-klw"/>
                 <constraint firstItem="QXD-r5-Y3K" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oZq-k9-QQ2"/>
                 <constraint firstItem="mSd-Bl-tDM" firstAttribute="leading" secondItem="stn-S4-lbz" secondAttribute="trailing" constant="5" id="orM-Br-hQH"/>
-                <constraint firstAttribute="bottom" secondItem="stn-S4-lbz" secondAttribute="bottom" constant="9" id="p70-8j-GWO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
